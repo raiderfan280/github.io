@@ -4,791 +4,168 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brent Zolezzi - Lead Support Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
+            background-color: #f4f4f4;
+            color: #333;
         }
-
-        :root {
-            --primary-color: #1a365d;
-            --secondary-color: #2d5aa0;
-            --accent-color: #3182ce;
-            --text-color: #2d3748;
-            --light-bg: #f7fafc;
-            --white: #ffffff;
-            --gray: #718096;
-            --success: #48bb78;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--light-bg);
-        }
-
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
         }
-
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-            color: var(--white);
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
+        h1, h2, h3 {
+            color: #0d47a1;
         }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 0.3; }
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            border: 5px solid var(--white);
-            margin-bottom: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            background: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-            color: var(--primary-color);
-            margin: 0 auto 20px;
-        }
-
-        h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .tagline {
-            font-size: 1.5em;
-            margin-bottom: 20px;
-            color: rgba(255,255,255,0.9);
-        }
-
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 30px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-2px);
-        }
-
-        .contact-item a {
-            color: var(--white);
+        a {
+            color: #0d47a1;
             text-decoration: none;
-            transition: opacity 0.3s ease;
         }
-
-        .contact-item a:hover {
-            opacity: 0.8;
+        a:hover {
+            text-decoration: underline;
         }
-
-        /* Navigation */
-        nav {
-            background: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .nav-container {
-            display: flex;
-            justify-content: center;
-            padding: 20px 0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--accent-color);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5em;
-            margin-bottom: 50px;
-            color: var(--primary-color);
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: var(--accent-color);
-            border-radius: 2px;
-        }
-
-        /* About Section */
-        .about-content {
-            max-width: 800px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
-
-        /* Skills Section */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .skill-category {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        }
-
-        .skill-category h3 {
-            color: var(--secondary-color);
+        .contact, .section {
             margin-bottom: 20px;
-            font-size: 1.3em;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
-
-        .skill-list {
-            list-style: none;
-        }
-
-        .skill-list li {
-            padding: 8px 0;
-            border-bottom: 1px solid #e2e8f0;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .skill-list li:last-child {
-            border-bottom: none;
-        }
-
-        .skill-list li::before {
-            content: '▸';
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-
-        /* Experience Section */
-        .timeline {
-            position: relative;
-            padding: 20px 0;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: var(--accent-color);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 50px;
-            width: 45%;
-        }
-
-        .timeline-item:nth-child(odd) {
-            left: 0;
-            text-align: right;
-            padding-right: 30px;
-        }
-
-        .timeline-item:nth-child(even) {
-            left: 55%;
-            padding-left: 30px;
-        }
-
-        .timeline-dot {
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            top: 0;
-        }
-
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -40px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -40px;
-        }
-
-        .timeline-content {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-content:hover {
-            transform: scale(1.02);
-        }
-
-        .timeline-content h3 {
-            color: var(--primary-color);
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-
-        .timeline-content .company {
-            color: var(--secondary-color);
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .timeline-content .date {
-            color: var(--gray);
-            font-size: 0.9em;
-            margin-bottom: 15px;
-        }
-
-        .timeline-content ul {
-            list-style: none;
+        .section ul {
+            list-style-type: none;
             padding-left: 0;
         }
-
-        .timeline-content li {
-            padding: 5px 0;
-            position: relative;
-            padding-left: 20px;
+        .section ul li {
+            margin-bottom: 5px;
         }
-
-        .timeline-content li::before {
-            content: '•';
-            color: var(--accent-color);
-            position: absolute;
-            left: 0;
-            font-size: 1.2em;
-        }
-
-        /* Certifications Section */
-        .certs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .cert-card {
-            background: var(--white);
-            padding: 30px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .cert-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .cert-icon {
-            font-size: 3em;
-            color: var(--accent-color);
+        .experience, .education, .certifications {
             margin-bottom: 20px;
         }
-
-        .cert-name {
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 10px;
+        .job-title {
+            font-weight: bold;
+            color: #0d47a1;
         }
-
-        /* Contact Section */
-        .contact-section {
-            background: var(--primary-color);
-            color: var(--white);
+        .job-details {
+            margin-left: 15px;
         }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 40px;
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
         }
-
-        .contact-method {
-            text-align: center;
-            padding: 30px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 10px;
-            transition: background 0.3s ease;
-        }
-
-        .contact-method:hover {
-            background: rgba(255,255,255,0.2);
-        }
-
-        .contact-method i {
-            font-size: 3em;
-            margin-bottom: 20px;
-            color: var(--white);
-        }
-
-        .contact-method h3 {
-            margin-bottom: 10px;
-        }
-
-        .contact-method a {
-            color: var(--white);
-            text-decoration: none;
-            transition: opacity 0.3s ease;
-        }
-
-        .contact-method a:hover {
-            opacity: 0.8;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--primary-color);
-            color: var(--white);
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
-
-            .tagline {
-                font-size: 1.2em;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                gap: 20px;
-                text-align: center;
-            }
-
-            .timeline::before {
-                left: 30px;
-            }
-
-            .timeline-item {
-                width: 100%;
-                left: 0 !important;
-                padding-left: 60px !important;
-                padding-right: 0 !important;
-                text-align: left !important;
-            }
-
-            .timeline-dot {
-                left: 20px !important;
-                right: auto !important;
-            }
-
-            .skills-grid,
-            .certs-grid,
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Scroll Animation */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
+        .skills div {
+            background-color: #e3f2fd;
+            margin: 5px;
+            padding: 5px 10px;
+            border-radius: 4px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="profile-img">
-                    <i class="fas fa-user-tie"></i>
-                </div>
-                <h1>Brent Zolezzi</h1>
-                <p class="tagline">Lead Support Engineer</p>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Tracy, CA</span>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:408-386-6462">408-386-6462</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:brentzolezzi@yahoo.com">brentzolezzi@yahoo.com</a>
-                    </div>
-                </div>
+    <div class="container">
+        <h1>Brent Zolezzi</h1>
+        <h2>Lead Support Engineer</h2>
+
+        <div class="contact">
+            <p>Tracy, CA | 408-386-6462 | <a href="mailto:brentzolezzi@yahoo.com">brentzolezzi@yahoo.com</a></p>
+            <p><a href="https://raiderfan280.github.io/github.io/" target="_blank">GitHub</a> | <a href="https://www.linkedin.com/in/brent-zolezzi-b3284375/" target="_blank">LinkedIn</a></p>
+        </div>
+
+        <div class="section">
+            <h3>Personal Summary</h3>
+            <p>Dynamic and results-driven Lead Support Engineer with a strong background in IT infrastructure, system administration, and technical troubleshooting. Adept at managing complex support operations, leading technical teams, and ensuring seamless IT service delivery. Skilled in network protocols, cloud technologies, and automation, with hands-on expertise in Windows/Linux environments, Active Directory, and virtualization. Proven ability to optimize IT processes, resolve high-impact incidents, and enhance system performance while maintaining strict SLA compliance. Committed to delivering top-tier customer support, driving operational excellence, and implementing security best practices. Passionate about leveraging innovative solutions to improve IT efficiency and empower teams with scalable, reliable, and secure IT infrastructure.</p>
+        </div>
+
+        <div class="section">
+            <h3>Core Competencies</h3>
+            <ul>
+                <li>Technical Troubleshooting & Problem Solving</li>
+                <li>Incident & Service Management (ITSM frameworks, Jira, ServiceNow, SLA compliance)</li>
+                <li>IT Infrastructure & System Administration (Windows/Linux, Active Directory, virtualization, cloud platforms)</li>
+                <li>Leadership & Team Collaboration</li>
+                <li>Network & Security Management</li>
+                <li>Automation & Process Optimization (Python, Bash, PowerShell)</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h3>Skills</h3>
+            <div class="skills">
+                <div>Technical Troubleshooting</div>
+                <div>System Administration (Windows/Linux)</div>
+                <div>Network Protocols (TCP/IP, DNS, DHCP)</div>
+                <div>IT Service Management (ITSM)</div>
+                <div>Incident Management</div>
+                <div>Customer Service & Client Communication</div>
+                <div>Help Desk Management</div>
+                <div>Hardware & Software Installation</div>
+                <div>Cloud Services (AWS, Azure, Google Cloud)</div>
+                <div>Remote Desktop Support</div>
+                <div>Documentation & Knowledge Base Creation</div>
+                <div>Ticketing Systems (Jira, ServiceNow)</div>
+                <div>Database Management (SQL, MySQL)</div>
+                <div>Scripting & Automation (Python, Bash, PowerShell)</div>
+                <div>Active Directory & Identity Management</div>
+                <div>Virtualization Technologies (VMware, Hyper-V)</div>
+                <div>Cybersecurity Fundamentals</div>
+                <div>SLA Management</div>
+                <div>Performance Monitoring & Reporting</div>
+                <div>Collaboration & Team Leadership</div>
             </div>
         </div>
-    </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <div class="nav-container">
-                <ul class="nav-links">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#experience">Experience</a></li>
-                    <li><a href="#certifications">Certifications</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
+        <div class="experience">
+            <h3>Experience</h3>
+
+            <p class="job-title">Senior IT Field Technician | Pleasanton, CA | 06/2025 – Present</p>
+            <ul class="job-details">
+                <li>Provide advanced IT support to enterprise clients, managing desktops, servers, networks, and endpoints.</li>
+                <li>Act as escalation point for complex technical issues with in-depth troubleshooting and root cause analysis.</li>
+                <li>Install, configure, and maintain client IT infrastructures.</li>
+                <li>Monitor and optimize system performance, proactively resolving potential issues.</li>
+                <li>Mentor junior field technicians to improve team efficiency and service quality.</li>
+                <li>Maintain detailed documentation of service tickets, resolutions, and operational procedures.</li>
+                <li>Ensure compliance with company policies, SLAs, and security standards.</li>
+            </ul>
+
+            <p class="job-title">Lead Support Engineer | Barracuda Networks Inc. | San Jose, CA | 03/2016 – 03/2025</p>
+            <ul class="job-details">
+                <li>Provided expert-level IT support across email, phone, and live chat channels, achieving 85% customer satisfaction.</li>
+                <li>Performed comprehensive hardware and software maintenance for Windows/Linux environments.</li>
+                <li>Created and published 200+ technical documents and troubleshooting guides.</li>
+                <li>Deployed AI and ChatGPT-driven automation to improve support response and reduce resolution times by 40%.</li>
+                <li>Managed Active Directory and Exchange accounts, troubleshooting access issues and permissions.</li>
+            </ul>
+
+            <p class="job-title">IT Relocation Specialist | Milestone Technologies | Fremont, CA | 01/2014 – 01/2018</p>
+            <ul class="job-details">
+                <li>De-installed, reinstalled, and configured computer components with 100% accuracy.</li>
+                <li>Performed hardware repairs, component upgrades, and troubleshooting to optimize infrastructure performance.</li>
+                <li>Managed cable organization and structured wiring, reducing setup times by 20%.</li>
+                <li>Led secure relocation of IT hardware while ensuring operational continuity.</li>
+            </ul>
+
+            <p class="job-title">Lead Security Officer | Guardsmark | Santa Ana, CA | 01/2012 – 03/2014</p>
+            <ul class="job-details">
+                <li>Oversaw security operations, trained officers, and ensured facility safety in high-risk situations.</li>
+                <li>Maintained detailed incident logs and ensured compliance with regulatory standards.</li>
+                <li>Conducted patrols, fire safety checks, and responded to alerts using risk assessment and crisis management skills.</li>
+            </ul>
         </div>
-    </nav>
 
-    <!-- About Section -->
-    <section id="about" class="fade-in">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <p>Dynamic and results-driven Lead Support Engineer with a strong background in IT infrastructure, system administration, and technical troubleshooting. Adept at managing complex support operations, leading technical teams, and ensuring seamless IT service delivery.</p>
-                <br>
-                <p>Skilled in network protocols, cloud technologies, and automation, with hands-on expertise in Windows/Linux environments, Active Directory, and virtualization. Proven ability to optimize IT processes, resolve high-impact incidents, and enhance system performance while maintaining strict SLA compliance.</p>
-            </div>
+        <div class="education">
+            <h3>Education</h3>
+            <p>Associate of Applied Science: Network Security | Heald College, Milpitas, CA | 01/2013</p>
         </div>
-    </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="fade-in">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3><i class="fas fa-server"></i> Infrastructure & Administration</h3>
-                    <ul class="skill-list">
-                        <li>Windows/Linux System Administration</li>
-                        <li>Active Directory & Identity Management</li>
-                        <li>Virtualization (VMware, Hyper-V)</li>
-                        <li>Cloud Services (AWS, Azure, Google Cloud)</li>
-                        <li>Database Management (SQL, MySQL)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-network-wired"></i> Networking & Security</h3>
-                    <ul class="skill-list">
-                        <li>Network Protocols (TCP/IP, DNS, DHCP)</li>
-                        <li>IPsec/VPN Configuration</li>
-                        <li>Cybersecurity Fundamentals</li>
-                        <li>Networking Tools (Wireshark, Nmap, TCPdump)</li>
-                        <li>Experience Supporting MSP Clients</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
-                    <ul class="skill-list">
-                        <li>Ticketing Systems (Jira, ServiceNow)</li>
-                        <li>Scripting & Automation (Python, Bash, PowerShell)</li>
-                        <li>Remote Desktop Support</li>
-                        <li>Performance Monitoring & Reporting</li>
-                        <li>Documentation & Knowledge Base Creation</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3><i class="fas fa-cogs"></i> Management & Operations</h3>
-                    <ul class="skill-list">
-                        <li>IT Service Management (ITSM)</li>
-                        <li>Incident Management</li>
-                        <li>SLA Management</li>
-                        <li>Help Desk Management</li>
-                        <li>Customer Service & Communication</li>
-                    </ul>
-                </div>
-            </div>
+        <div class="certifications">
+            <h3>Certifications</h3>
+            <ul>
+                <li>Docker Foundations Professional Certification</li>
+                <li>Career Essentials in Cybersecurity (Microsoft & LinkedIn)</li>
+                <li>CompTIA Security+ ce Certification</li>
+            </ul>
         </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="fade-in">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Lead Support Engineer</h3>
-                        <p class="company">Barracuda Networks Inc.</p>
-                        <p class="date">March 2016 - March 2025</p>
-                        <ul>
-                            <li>Provided expert-level IT support maintaining 95% customer satisfaction rate</li>
-                            <li>Created over 200 technical documents and troubleshooting guides</li>
-                            <li>Deployed AI and ChatGPT-driven automation reducing resolution times by 40%</li>
-                            <li>Managed Active Directory and Exchange administration</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>IT Relocation Specialist</h3>
-                        <p class="company">Milestone Technologies</p>
-                        <p class="date">January 2014 - January 2018</p>
-                        <ul>
-                            <li>Maintained 100% accuracy rate in hardware and software maintenance</li>
-                            <li>Implemented structured wiring reducing setup times by 20%</li>
-                            <li>Led secure relocation of IT hardware ensuring operational continuity</li>
-                            <li>Coordinated with project teams to minimize downtime</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Lead Security Officer</h3>
-                        <p class="company">Guardsmark</p>
-                        <p class="date">January 2012 - March 2014</p>
-                        <ul>
-                            <li>Led security operations and trained new officers</li>
-                            <li>Maintained detailed logs and documentation of security incidents</li>
-                            <li>Conducted regular patrols and safety inspections</li>
-                            <li>Responded to security alerts and managed crisis situations</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications" class="fade-in">
-        <div class="container">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certs-grid">
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-docker"></i>
-                    </div>
-                    <h3 class="cert-name">Docker Foundations Professional Certification</h3>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fab fa-microsoft"></i>
-                    </div>
-                    <h3 class="cert-name">Career Essentials in Cybersecurity by Microsoft and LinkedIn</h3>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <h3 class="cert-name">CompTIA Security+ ce Certification</h3>
-                </div>
-                <div class="cert-card">
-                    <div class="cert-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3 class="cert-name">ChatGPT for Cybersecurity</h3>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section fade-in">
-        <div class="container">
-            <h2 class="section-title" style="color: white;">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-method">
-                    <i class="fas fa-phone"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:408-386-6462">408-386-6462</a>
-                </div>
-                <div class="contact-method">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <a href="mailto:brentzolezzi@yahoo.com">brentzolezzi@yahoo.com</a>
-                </div>
-                <div class="contact-method">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <h3>Location</h3>
-                    <span>Tracy, CA</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Brent Zolezzi. All rights reserved. | Lead Support Engineer</p>
-        </div>
-    </footer>
-
-    <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Add active class to navigation based on scroll position
-        window.addEventListener('scroll', () => {
-            let current = '';
-            const sections = document.querySelectorAll('section');
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href').slice(1) === current) {
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Add typing effect to header
-        const tagline = document.querySelector('.tagline');
-        const text = tagline.textContent;
-        tagline.textContent = '';
-        let i = 0;
-
-        function typeWriter() {
-            if (i < text.length) {
-                tagline.textContent += text.charAt(i);
-                i++;
-                setTimeout(typeWriter, 100);
-            }
-        }
-
-        // Start typing effect after page load
-        window.addEventListener('load', () => {
-            setTimeout(typeWriter, 500);
-        });
-    </script>
+    </div>
 </body>
 </html>
